@@ -28,9 +28,14 @@ const RestaurantList = (props) => {
   }, []);
 
   const renderRestaurants = ({item}) => {
-    return <RestaurantItem restaurant={item}
-    onSelect={() => props.navigation.navigate("Details", {selectedRestaurant : item})}
-    />;
+    return (
+      <RestaurantItem
+        restaurant={item}
+        onSelect={() =>
+          props.navigation.navigate('Details', {selectedRestaurant: item})
+        }
+      />
+    );
   };
 
   function searchRestaurant(search) {
@@ -43,21 +48,23 @@ const RestaurantList = (props) => {
   }
 
   return (
-    <SafeAreaView>
-      <View>
-        <Text style={{margin: 5, fontSize: 30, fontWeight: 'bold'}}>
-          {selectedCity} Restaurants
-        </Text>
-        <SearchBar
-          placeholder="Search a restaurant..."
-          onSearch={(value) => searchRestaurant(value)}
-        />
-      </View>
+    <SafeAreaView style={{flex: 1}}>
+      <View style={{flex: 1}}>
+        <View>
+          <Text style={{margin: 5, fontSize: 30, fontWeight: 'bold'}}>
+            {selectedCity} Restaurants
+          </Text>
+          <SearchBar
+            placeholder="Search a restaurant..."
+            onSearch={(value) => searchRestaurant(value)}
+          />
+        </View>
 
-      <View>
-        <FlatList 
-        keyExtractor={(_, index) => index.toString()}
-        data={restaurantList} renderItem={renderRestaurants} />
+        <FlatList
+          keyExtractor={(_, index) => index.toString()}
+          data={restaurantList}
+          renderItem={renderRestaurants}
+        />
       </View>
     </SafeAreaView>
   );
