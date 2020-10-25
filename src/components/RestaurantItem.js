@@ -1,0 +1,40 @@
+import React from 'react';
+import {
+  TouchableOpacity,
+  Image,
+  Dimensions,
+  View,
+  Text,
+  StyleSheet,
+} from 'react-native';
+
+const RestaurantItem = (props) => {
+  return (
+    <TouchableOpacity style={styles.container}
+    onPress={props.onSelect}
+    >
+      <Image style={styles.image} source={{uri: props.restaurant.image_url}} />
+      <Text style={styles.name}>{props.restaurant.name}</Text>
+    </TouchableOpacity>
+  );
+};
+
+export {RestaurantItem};
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: 'cyan',
+    padding: 10,
+    margin: 10,
+    borderRadius: 10,
+  },
+
+  image: {
+    height: Dimensions.get('window').height / 3,
+  },
+  name: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    margin: 5,
+  },
+});

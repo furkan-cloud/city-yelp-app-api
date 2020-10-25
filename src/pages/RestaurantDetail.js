@@ -1,7 +1,9 @@
 import React from 'react';
 import {SafeAreaView, View, Text} from 'react-native';
 
-const RestaurantDetail = () => {
+const RestaurantDetail = (props) => {
+const selectedRestaurants = props.route.params;
+
     return(
         <SafeAreaView>
             <View>
