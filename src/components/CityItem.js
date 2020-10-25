@@ -17,7 +17,7 @@ const styles = StyleSheet.create ({
     container: {
         padding: 10,
         margin: 2,
-        backgroundColor: "lightgrey",
+        backgroundColor: "#fafafa",
     },
     text: {
         textAlign: "center",

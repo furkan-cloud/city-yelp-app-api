@@ -23,7 +23,7 @@ export {RestaurantItem};
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'cyan',
+    backgroundColor: '#81d4fa',
     padding: 10,
     margin: 10,
     borderRadius: 10,
