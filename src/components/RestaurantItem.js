@@ -39,7 +39,7 @@ const RestaurantItem = (props) => {
   return (
     <TouchableOpacity style={styles.container} onPress={props.onSelect}>
       <Image style={styles.image} source={{uri: props.restaurant.image_url}} />
-      <View style={{flex: 1, flexDirection:"row", justifyContent: 'space-between', alignContent:"center"}}>
+      <View style={{flex: 1, flexDirection:"row",justifyContent:"space-between", alignContent:"center"}}>
         <Text style={styles.name}>{props.restaurant.name}</Text>
         <Text style={styles.price}>{isExpensive(prices)}</Text>
       </View>
@@ -64,10 +64,13 @@ const styles = StyleSheet.create({
   name: {
     fontSize: 20,
     fontWeight: 'bold',
-    margin: 5,
+    paddingRight: 50,
+    marginVertical: 5,
   },
   price: {
+    position: "absolute",
+    right: 0,
     fontSize: 20,
-    margin: 5,
+    marginVertical: 5,
   },
 });
