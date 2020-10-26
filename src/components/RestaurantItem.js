@@ -9,39 +9,21 @@ import {
 } from 'react-native';
 
 const RestaurantItem = (props) => {
-  const prices = props.restaurant.price;
-
-  const isExpensive = (prices) => {
-      var text;
-    let setPrice = 0;
-    for (let i = 0; i < prices; i++) {
-      setPrice += 1;
-    }
-    switch (setPrice) {
-      case 1:
-        text = '💲';
-        break;
-      case 2:
-        text = '💲💲';
-        break;
-      case 3:
-        text = '💲💲💲';
-        break;
-      case 4:
-        text = '💲💲💲💲';
-        break;
-      default:
-        text = '💲💲💲💲💲';
-    }
-    return text;
-  };
+  const priceItem = '💲';
 
   return (
     <TouchableOpacity style={styles.container} onPress={props.onSelect}>
       <Image style={styles.image} source={{uri: props.restaurant.image_url}} />
-      <View style={{flex: 1, flexDirection:"row",justifyContent:"space-between", alignContent:"center"}}>
+      <View
+        style={{
+          flex: 1,
+          // flexWrap: "wrap",
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          alignContent: 'center',
+        }}>
         <Text style={styles.name}>{props.restaurant.name}</Text>
-        <Text style={styles.price}>{isExpensive(prices)}</Text>
+        <Text style={styles.price}>{priceItem.repeat(props.restaurant.price)}</Text>
       </View>
     </TouchableOpacity>
   );
@@ -64,11 +46,11 @@ const styles = StyleSheet.create({
   name: {
     fontSize: 20,
     fontWeight: 'bold',
-    paddingRight: 50,
+    paddingRight: 70,
     marginVertical: 5,
   },
   price: {
-    position: "absolute",
+    position: 'absolute',
     right: 0,
     fontSize: 20,
     marginVertical: 5,
